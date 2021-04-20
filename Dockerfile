@@ -15,4 +15,7 @@ RUN cd revel_webapp && go mod tidy
 
 EXPOSE 9000
 
-RUN revel build revel_webapp app dev
+RUN revel build revel_webapp app dev && \
+    pwd && \
+    ls && \
+    chmod +x /src/revel_webapp
