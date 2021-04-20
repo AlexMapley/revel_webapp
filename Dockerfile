@@ -11,11 +11,17 @@ RUN go get github.com/revel/revel && \
 
 WORKDIR /src
 
-RUN cd revel_webapp && go mod tidy
 
-EXPOSE 9000
+EXPOSE 8080
 
-RUN revel build revel_webapp app dev && \
-    pwd && \
-    ls && \
-    chmod +x /src/revel_webapp
+
+# RUN cd revel_webapp && go mod tidy && \
+ENTRYPOINT revel run revel_webapp 8080
+
+# RUN revel build revel_webapp app dev && \
+#     pwd && \
+#     ls && \
+#     chmod 777 /src/revel_webapp
+
+# Use the revel CLI to start up our application.
+# ENTRYPOINT revel run github.com/JustinBeckwith/revel-appengine dev 8080
