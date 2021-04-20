@@ -2,7 +2,9 @@ FROM golang:latest
 
 COPY ./ /src/
 
-RUN go clean \
+RUN cd /src \
+    && ls \
+    && go clean \
     && go install ./... \
     go build
 
